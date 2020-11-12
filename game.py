@@ -1,21 +1,25 @@
 import random
 
 winning = True
+score = 0
 
 while winning:
     hidden = random.randrange(1, 13)
 
     print("My card is: " + str(hidden))
-    guess = int(input("Type 1 to draw a random card. \nIf it's higher, you win. \nIf it's lower, you lose. \nType 2 to quit. What do you choose? "))
+    guess = int(input("Type 1 to draw or 2 to quit: "))
 
     if guess == 1:
         mycard = random.randrange(1, 13)
         print("Your card is: " + str(mycard))
         if mycard > hidden:
-            print("You win!\n")
+            print("You win!")
+            score = score + 100
+            print("Your score: " + str(score) + "\n")
         else:
             print("You lose!")
+            print("Final score: " + str(score) + "\n")
             winning = False
     else:
-        print("Bye!")
+        print("Good game!")
         winning = False
